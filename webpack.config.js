@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/client/index.js',
-  // introduction of loaders
   module: {
     // 1st rule we see in Webpack
+    // loaders
     rules: [
       {
         test: '/\.js$/', // anything that ends in ".js"
@@ -14,9 +15,19 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: 'main.js',
-    publicPath: '/dist'
-  }
+
+  // output section
   // here "output" property could be added, but default is being used implicitly
+  // output: {
+  //   filename: 'main.js',
+  //   publicPath: '/dist'
+  // },
+  
+  // plugins section
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/client/views/index.html",
+      filename: "./index.html"
+    })
+  ],
 };
