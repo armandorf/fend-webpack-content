@@ -3,10 +3,10 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: './src/client/index.js',
   module: {
-    // 1st rule we see in Webpack
-    // loaders
+    // 1st rule we see in Webpack: loaders
     rules: [
       {
         test: '/\.js$/', // anything that ends in ".js"
